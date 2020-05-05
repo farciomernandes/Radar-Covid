@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container-home{
+    background-image: url(../../assets/back-page.png);
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: table;
+    justify-content: center;
+    align-items: center;
+}
+.topo{
+    display: table;
+    margin: 5%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.titlee{
+    color: white;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 1px 5px 3px black;
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10%;
+}
+.cidadee{
+    font-size: 14px;
+    margin-top: 25%;
+    text-align: center;
+    justify-content: center;
+    color: gold;
+    box-shadow: 1px 20px 32px black;
+    width: 300px;
+    left: 18px;
+    position: relative;
+}
+.states{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 340px;
+    display: flex;
+    margin-top: 5%;
+}
+.confir{
+    margin-top: 15%;
+    position: relative;
+    right: 17%;
+    box-shadow: 5px 20px 32px black;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+.deade{
+    box-shadow: 5px 20px 32px black;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    top: 25px;
+    left: 35px;
+}
+.results{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+}
+.confirmed{
+    box-shadow: 5px 20px 32px black;
+    font-size: 40px;
+    color: gold;
+    font-weight: 600;
+    margin-right: 35%;
+    border: 1px solid black;
+    width: 50px;
+}
+.death{
+    box-shadow: 5px 20px 32px black;
+    font-size: 40px;
+    color: gold;
+    font-weight: 600;
+    width: 50px;
+}
+.date{
+    text-align: center;
+    margin-top: 20%;
+
+}
+footer{
+    margin-top: 20%;
+}
+
+.copy{
+    font-size: 8px;
+    color: white;
+}

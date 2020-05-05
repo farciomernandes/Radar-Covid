@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-image: url(../../assets/back-page.png);
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: table;
+    justify-content: center;
+    align-items: center;
+}
+
+.top{
+    display: table;
+    margin: 5%;
+}
+.title{
+    color: white;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 1px 5px 3px black;
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 5%;
+}
+.text{
+    position: relative;
+    right: 1%;
+    font-size: 22px;
+    margin-top: 20%;
+    text-align: center;
+    justify-content: center;
+    color: gold;
+    box-shadow: 1px 20px 32px black;
+    border: 1px solid white;
+    border-radius: 60px 0px 60px 0px;
+    padding-top: 25px;
+    padding-left: 12px;
+    width: 100%;
+}
+span{
+    background: none;
+    font-size: 55px;
+}
+.form{
+    position: relative;
+    bottom: 13%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    margin-top: 15%;
+}
+.form form{
+    display: table;
+    text-align: center;
+}
+.form input{
+    background-color: black;
+    height: 37px;
+    width: 210px;
+    color: white;
+    text-align: center;
+    display: table;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 9px;
+    border: none;
+}
+.form button{
+    background-color: black;
+    height: 40px;
+    width: 140px;
+    color: white;
+    border-radius: 9px;
+    border: none;
+    opacity: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.form button:hover{
+    opacity: 0.5;
+}
+footer{
+    color: gold;
+    font-size: 20px;
+    margin-top: 23px;
+    text-align: center;
+}
+.copy{
+    font-size: 8px;
+    color: white;
+}
+.este{
+    border: 1px solid red;
+    position: relative;
+}
