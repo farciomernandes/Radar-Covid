@@ -11,7 +11,7 @@ export default function Welcome(){
     function enviar(){
         localStorage.setItem('cidade', cidade)
         localStorage.setItem('estado', estado)
-        if(cidade != null){
+        if(cidade[0] != null){
             history.push('/home')
         }else{
             alert('O Nome da cidade é invalido. Certifique-se que a inicial está maiusculá e o nome correto!')
@@ -20,7 +20,8 @@ export default function Welcome(){
 
     useEffect(()=>{
         alert(`Devido a alguns problemas de dados 
-        algumas cidades do Brasil estão temporáriamente inacessíveis!`);
+        algumas cidades do Brasil estão temporáriamente inacessíveis!
+        Certifique-se e iniciar com letra MAIÚSCULA!`);
     }, [])
 
 

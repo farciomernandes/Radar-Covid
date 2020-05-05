@@ -39,6 +39,7 @@ export default function Welcome(){
         </div>
         <div className="results">
             <section className="confirmed"> {resultado.confirmed}</section>
+            <section className="dividir"></section>
             <section className="death"> {resultado.deaths}</section>
         </div>
         <section className="date">Atualizado: {resultado.date}</section>

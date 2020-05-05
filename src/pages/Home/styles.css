@@ -23,6 +23,7 @@
     color: white;
     position: relative;
     width: 100%;
+    right: 10px;
     text-align: center;
     font-weight: 600;
     box-shadow: 1px 5px 3px black;
@@ -71,7 +72,6 @@
     left: 35px;
 }
 .results{
-    position: relative;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -83,16 +83,17 @@
     font-size: 40px;
     color: gold;
     font-weight: 600;
-    margin-right: 35%;
-    border: 1px solid black;
-    width: 50px;
+    width: 140px;
 }
 .death{
     box-shadow: 5px 20px 32px black;
     font-size: 40px;
     color: gold;
     font-weight: 600;
-    width: 50px;
+    width: 140px;
+}
+.dividir{
+    width: 30px;
 }
 .date{
     text-align: center;
