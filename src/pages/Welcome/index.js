@@ -7,7 +7,7 @@ import './styles.css';
 export default function Welcome(){
     const [estado, setEstado] = useState('AL');
     const [cidade, setCidade] = useState();
-    const {citys, setCitys} = useState('Aurora');
+    const {citys, setCitys} = useState();
     const history = useHistory();
 
     function enviar(){
@@ -17,23 +17,20 @@ export default function Welcome(){
         
     }
 
-    function pesquisar(){
-      let all = axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
-        for(let k = 0; k < all.length; k++){
+    async function pesquisar(){
+        console.log('chamou')
+      let all = await axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
+        console.log('ALL JA RECEBEU DE ',estado)
+
+          for(let k = 0; k < all.length; k++){
+            console.log('Entrou no FOR')
             if(all[k]['state'] === estado){
-                setCitys(citys)
+                setCitys(citys.push(all[k]))
                 console.log(citys)
             }
         }
     }
         
-
-    useEffect(()=>{
-        alert(`Devido a alguns problemas de dados 
-        algumas cidades do Brasil estão temporáriamente inacessíveis!
-        Certifique-se e iniciar com letra MAIÚSCULA!`);
-    }, [])
-
 
     return(
         <div className="container">
@@ -50,8 +47,8 @@ export default function Welcome(){
             </div>
             <section className="form">
             <form onSubmit={enviar} >
-
-                    <select name="estado" value={estado} onChange={e => setEstado(e.target.value)}>
+                <div>
+                <select name="estado" value={estado} onChange={e => setEstado(e.target.value)} onSelect={pesquisar()}>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
                         <option value="BA">BA</option>
@@ -80,6 +77,8 @@ export default function Welcome(){
                         <option value="TO">TO</option>
                         <option value="DF">DF</option>
                     </select>
+                </div>
+                   
                     <div className="separarrr"></div>
                     <div>
 
