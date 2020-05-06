@@ -5,9 +5,9 @@ import { useHistory } from 'react-router-dom';
 import './styles.css';
 
 export default function Welcome(){
-    const [estado, setEstado] = useState('AL');
+    const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
-    const {citys, setCitys} = useState();
+    const [citys, setCitys] = useState(['Selecione uma cidade']);
     const history = useHistory();
 
     function enviar(){
@@ -17,17 +17,10 @@ export default function Welcome(){
         
     }
 
-    function pesquisar(){
-        console.log('chamou')
-      let all = axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
-
-          for(let k = 0; k < all.length; k++){
-            console.log('Entrou no FOR')
-            if(all[k]['state'] === estado){
-                setCitys(citys.push(all[k]))
-                console.log(citys)
-            }
-        }
+    async function pesquisar(){
+      let all = await axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
+      setCitys(all.data.results);
+      console.log('CIDADES É: ', citys)
     }
         
 
@@ -47,7 +40,7 @@ export default function Welcome(){
             <section className="form">
             <form onSubmit={enviar} >
                 <div>
-                <select name="estado" value={estado} onChange={e => setEstado(e.target.value)} onSelect={pesquisar()}>
+                <select name="estado" value={estado} onChange={e => setEstado(e.target.value)}>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
                         <option value="BA">BA</option>
@@ -76,6 +69,7 @@ export default function Welcome(){
                         <option value="TO">TO</option>
                         <option value="DF">DF</option>
                     </select>
+                    <button className="btn-estados" type="button" onClick={pesquisar}>Selecionar</button>
                 </div>
                    
                     <div className="separarrr"></div>
@@ -83,8 +77,9 @@ export default function Welcome(){
 
                     <select name="cidade" value={cidade} onSelect={e => setCidade(e.target.value)}>
 
-
-                        <option value = {citys}>{citys}</option>
+                        {citys.map(city =>(
+                            <option value={city['city']}>{city['city']}</option>
+                        ))}
                     
                     </select>
 
