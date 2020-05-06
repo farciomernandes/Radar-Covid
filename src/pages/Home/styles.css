@@ -23,7 +23,7 @@
     color: white;
     position: relative;
     width: 100%;
-    right: 10px;
+    left: 15px;
     text-align: center;
     font-weight: 600;
     box-shadow: 1px 5px 3px black;
@@ -40,7 +40,7 @@
     color: gold;
     box-shadow: 1px 20px 32px black;
     width: 300px;
-    left: 18px;
+    left: 10%;
     position: relative;
 }
 .states{
@@ -56,7 +56,7 @@
 .confir{
     margin-top: 15%;
     position: relative;
-    right: 17%;
+    right: 20%;
     box-shadow: 5px 20px 32px black;
     font-size: 20px;
     color: white;
@@ -69,7 +69,7 @@
     font-weight: 600;
     position: relative;
     top: 25px;
-    left: 35px;
+    left: 75px;
 }
 .results{
     align-items: center;
@@ -84,6 +84,7 @@
     color: gold;
     font-weight: 600;
     width: 140px;
+    margin-right: 60px;
 }
 .death{
     box-shadow: 5px 20px 32px black;

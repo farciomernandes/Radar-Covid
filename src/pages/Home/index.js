@@ -38,9 +38,9 @@ export default function Welcome(){
             </div>
         </div>
         <div className="results">
-            <section className="confirmed"> {resultado.confirmed}</section>
+            <section className="confirmed">2500 {resultado.confirmed}</section>
             <section className="dividir"></section>
-            <section className="death"> {resultado.deaths}</section>
+            <section className="death">11 {resultado.deaths}</section>
         </div>
         <section className="date">Atualizado: {resultado.date}</section>
 

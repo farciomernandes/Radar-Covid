@@ -28,10 +28,11 @@
     width: 100%;
     margin-bottom: 20px;
     margin-top: 5%;
+    left: 20px;
 }
 .text{
     position: relative;
-    left: 5%;
+    left: 8%;
     font-size: 22px;
     margin-top: 20%;
     text-align: center;
@@ -43,6 +44,9 @@
     padding-top: 25px;
     padding-left: 12px;
     width: 90%;
+}
+.separarrr{
+    height: 10px;
 }
 span{
     background: none;
@@ -62,7 +66,7 @@ span{
     display: table;
     text-align: center;
 }
-.form input{
+.form select , select option{
     background-color: black;
     height: 37px;
     width: 210px;
@@ -77,6 +81,7 @@ span{
     border: none;
 }
 .form button{
+    position: relative;
     background-color: black;
     height: 40px;
     width: 140px;
@@ -87,6 +92,7 @@ span{
     text-align: center;
     justify-content: center;
     align-items: center;
+    top: 15px;
 }
 .form button:hover{
     opacity: 0.5;
