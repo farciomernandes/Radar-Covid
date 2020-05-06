@@ -17,10 +17,9 @@ export default function Welcome(){
         
     }
 
-    async function pesquisar(){
+    function pesquisar(){
         console.log('chamou')
-      let all = await axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
-        console.log('ALL JA RECEBEU DE ',estado)
+      let all = axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
 
           for(let k = 0; k < all.length; k++){
             console.log('Entrou no FOR')
