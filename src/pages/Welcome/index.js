@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 import './styles.css';
@@ -7,22 +6,23 @@ import './styles.css';
 export default function Welcome(){
     const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState();
-    const [citys, setCitys] = useState(['Selecione uma cidade']);
     const history = useHistory();
 
     function enviar(){
         localStorage.setItem('cidade', cidade)
         localStorage.setItem('estado', estado)
-        history.push('/home')   
-        
+        if(cidade[0] != null){
+            history.push('/home')
+        }else{
+            alert('O Nome da cidade é invalido. Certifique-se que a inicial está maiusculá e o nome correto!')
+        }
     }
 
-    async function pesquisar(){
-      let all = await axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000')
-      setCitys(all.data.results);
-      console.log('CIDADES É: ', citys)
-    }
-        
+    useEffect(()=>{
+        alert(`Escreve o nome da cidade com inicial MAIÚSCULA!
+        ex: Juazeiro do Norte`);
+    }, [])
+
 
     return(
         <div className="container">
@@ -39,51 +39,10 @@ export default function Welcome(){
             </div>
             <section className="form">
             <form onSubmit={enviar} >
-                <div>
-                <select name="estado" value={estado} onChange={e => setEstado(e.target.value)}>
-                        <option value="AL">AL</option>
-                        <option value="AP">AP</option>
-                        <option value="BA">BA</option>
-                        <option value="CE">CE</option>
-                        <option value="ES">ES</option>
-                        <option value="GO">GO</option>
-                        <option value="MG">MG</option>
-                        <option value="MS">MS</option>
-                        <option value="MT">MT</option>
-                        <option value="PA">PA</option>
-                        <option value="PB">PB</option>
-                        <option value="PE">PE</option>
-                        <option value="PR">PR</option>
-                        <option value="RJ">RJ</option>
-                        <option value="RR">RR</option>
-                        <option value="RS">RS</option>
-                        <option value="SC">SC</option>
-                        <option value="SE">SE</option>
-                        <option value="SP">SP</option>
-                        <option value="AM">AM</option>
-                        <option value="AC">AC</option>
-                        <option value="MA">MA</option>
-                        <option value="PI">PI</option>
-                        <option value="RN">RN</option>
-                        <option value="RO">RO</option>
-                        <option value="TO">TO</option>
-                        <option value="DF">DF</option>
-                    </select>
-                    <button className="btn-estados" type="button" onClick={pesquisar}>Selecionar</button>
-                </div>
-                   
-                    <div className="separarrr"></div>
-                    <div>
-
-                    <select name="cidade" value={cidade} onSelect={e => setCidade(e.target.value)}>
-
-                        {citys.map(city =>(
-                            <option value={city['city']}>{city['city']}</option>
-                        ))}
-                    
-                    </select>
-
-                    </div>
+                    <input placeholder="Estado" value={estado} 
+                    onChange={e => setEstado(e.target.value)} />
+                    <input placeholder="Cidade" value={cidade}
+                    onChange={e => setCidade(e.target.value)} />
                     <button type="submit">Ver Casos</button>
             </form>
             </section>

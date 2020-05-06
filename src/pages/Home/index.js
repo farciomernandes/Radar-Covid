@@ -8,6 +8,10 @@ export default function Welcome(){
     const [cidade, setCidade] = useState('Não encontrado');
 
     useEffect(()=>{
+        alert(`As mortes informadas na página
+        são apena para mortes causadas pelo COVID-19
+        pacientes que morrem de outras causas não são 
+        adicionados aos óbitos!`)
         pesquisa()
     },[])
 
@@ -21,8 +25,6 @@ export default function Welcome(){
                 setResultado(infos[info])
                 setCidade(localStorage.getItem('cidade'))
                 setEstado(localStorage.getItem('estado'))
-
-
             }
         }
     }
@@ -38,9 +40,9 @@ export default function Welcome(){
             </div>
         </div>
         <div className="results">
-            <section className="confirmed">2500 {resultado.confirmed}</section>
+            <section className="confirmed">{resultado.confirmed}</section>
             <section className="dividir"></section>
-            <section className="death">11 {resultado.deaths}</section>
+            <section className="death">{resultado.deaths}</section>
         </div>
         <section className="date">Atualizado: {resultado.date}</section>
 

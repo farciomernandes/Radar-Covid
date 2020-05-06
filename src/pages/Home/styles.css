@@ -23,7 +23,7 @@
     color: white;
     position: relative;
     width: 100%;
-    left: 15px;
+    left: 4px;
     text-align: center;
     font-weight: 600;
     box-shadow: 1px 5px 3px black;
@@ -40,7 +40,7 @@
     color: gold;
     box-shadow: 1px 20px 32px black;
     width: 300px;
-    left: 10%;
+    left: 7%;
     position: relative;
 }
 .states{
