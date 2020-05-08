@@ -17,7 +17,11 @@ export default function Welcome(){
 
     async function pesquisa(){
         const teste = localStorage.getItem('cidade')
-        let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json');
+        if(teste === 'Aurora'){
+                let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&page=3');
+        }else{
+                let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000');
+        }
         let infos = resultado.data.results;
             for(let info in infos){
             if(infos[info]['city'] === teste){
