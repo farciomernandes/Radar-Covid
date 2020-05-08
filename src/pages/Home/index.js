@@ -17,11 +17,7 @@ export default function Welcome(){
 
     async function pesquisa(){
         const teste = localStorage.getItem('cidade')
-        if(teste === 'Aurora'){
-                let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&page=3');
-        }else{
-                let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000');
-        }
+        let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000');
         let infos = resultado.data.results;
             for(let info in infos){
             if(infos[info]['city'] === teste){
@@ -29,6 +25,9 @@ export default function Welcome(){
                 setResultado(infos[info])
                 setCidade(localStorage.getItem('cidade'))
                 setEstado(localStorage.getItem('estado'))
+                if(cidade == 'Aurora'){
+                    resultado.deaths+1;
+                }
             }
         }
     }
