@@ -25,9 +25,6 @@ export default function Welcome(){
                 setResultado(infos[info])
                 setCidade(localStorage.getItem('cidade'))
                 setEstado(localStorage.getItem('estado'))
-                if(cidade == 'Aurora'){
-                    resultado.deaths+1;
-                }
             }
         }
     }
@@ -54,5 +51,3 @@ export default function Welcome(){
         </div>
     );
 }
-
-
