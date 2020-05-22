@@ -4,7 +4,7 @@ import './styles.css'
 
 export default function Welcome(){
     const [resultado, setResultado] = useState({});
-    const [estado, setEstado] = useState('Não encontrado');
+    const [estado, setEstado] = useState();
     const [cidade, setCidade] = useState('Não encontrado');
 
     useEffect(()=>{
@@ -16,11 +16,15 @@ export default function Welcome(){
     },[])
 
     async function pesquisa(){
-        const teste = localStorage.getItem('cidade')
-        let resultado = await Axios.get('https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=true&page_size=10000');
+        const teste = localStorage.getItem('estado')
+        const citty = localStorage.getItem('cidade')
+        let resultado = await Axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=True&state=${teste}`);
         let infos = resultado.data.results;
+        console.log('cidade: ', citty)
+        console.log('estado: ', teste)
+        console.log('infos: ', infos)
             for(let info in infos){
-            if(infos[info]['city'] === teste){
+            if(infos[info]['city'] === citty){
                 
                 setResultado(infos[info])
                 setCidade(localStorage.getItem('cidade'))

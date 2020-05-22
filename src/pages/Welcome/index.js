@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import Axios from 'axios';
+
 
 import './styles.css';
 
 export default function Welcome(){
-    const [estado, setEstado] = useState();
+    const [estado, setEstado] = useState('AL');
     const [cidade, setCidade] = useState();
+    const [options, setOptions] = useState([]);
+    
     const history = useHistory();
 
     function enviar(){
         localStorage.setItem('cidade', cidade)
         localStorage.setItem('estado', estado)
+
         if(cidade[0] != null){
             history.push('/home')
         }else{
@@ -19,10 +24,16 @@ export default function Welcome(){
     }
 
     useEffect(()=>{
-        alert(`Escreve o nome da cidade com inicial MAIÚSCULA!
-        ex: Juazeiro do Norte`);
-    }, [])
 
+        searchh()
+    }, [estado])
+
+    async function searchh(){
+        let resultado = await Axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=True&state=${estado}`);
+        let infos = resultado.data.results;
+        console.log('infos: ', infos[5].city)
+        setOptions(infos)
+    }
 
     return(
         <div className="container">
@@ -39,10 +50,52 @@ export default function Welcome(){
             </div>
             <section className="form">
             <form onSubmit={enviar} >
-                    <input placeholder="Estado" value={estado} 
-                    onChange={e => setEstado(e.target.value)} />
-                    <input placeholder="Cidade" value={cidade}
-                    onChange={e => setCidade(e.target.value)} />
+                <div>
+                <select name="estado" value={estado} onChange={e => setEstado(e.target.value)}>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MG">MG</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PE">PE</option>
+                        <option value="PR">PR</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RR">RR</option>
+                        <option value="RS">RS</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="AM">AM</option>
+                        <option value="AC">AC</option>
+                        <option value="MA">MA</option>
+                        <option value="PI">PI</option>
+                        <option value="RN">RN</option>
+                        <option value="RO">RO</option>
+                        <option value="TO">TO</option>
+                        <option value="DF">DF</option>
+                    </select>
+                </div>
+                   
+                    <div className="separarrr"></div>
+                    <div>
+
+                    <select name="cidade" value={cidade} onChange={e => setCidade(e.target.value)}>
+                        
+                        
+                    {options.map(ops=> (
+                        <option value={ops.city} key={ops.city_ibge_code}>{ops.city}</option>
+                ))}
+
+
+                    </select>
+
+                    </div>
                     <button type="submit">Ver Casos</button>
             </form>
             </section>
