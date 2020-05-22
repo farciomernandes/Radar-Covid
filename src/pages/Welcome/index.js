@@ -31,7 +31,6 @@ export default function Welcome(){
     async function searchh(){
         let resultado = await Axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?format=json&is_last=True&state=${estado}`);
         let infos = resultado.data.results;
-        console.log('infos: ', infos[5].city)
         setOptions(infos)
     }
 
@@ -91,7 +90,6 @@ export default function Welcome(){
                     {options.map(ops=> (
                         <option value={ops.city} key={ops.city_ibge_code}>{ops.city}</option>
                 ))}
-
 
                     </select>
 

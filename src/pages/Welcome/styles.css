@@ -80,7 +80,7 @@ span{
     border-radius: 9px;
     border: none;
 }
-.form button{
+.form button, select{
     position: relative;
     background-color: black;
     height: 40px;
@@ -93,6 +93,7 @@ span{
     justify-content: center;
     align-items: center;
     top: 15px;
+    margin: 2%;
 }
 .form button:hover{
     opacity: 0.5;
